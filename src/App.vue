@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <MyBox />
-    <MyBox number="1"/>
-    <MyBox number="2"/>
-    <MyBox number="3"/>
+    <MyBox number=1 pending="inactive"/>
+    <MyBox number=2 />
+    <MyBox number=3 />
   </div>
 </template>
 

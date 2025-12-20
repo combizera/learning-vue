@@ -1,5 +1,5 @@
 <template>
-  <div class="box">
+  <div :class="['box', pending]">
     <h1>
       {{ number }}
     </h1>
@@ -7,26 +7,36 @@
 </template>
 
 <script>
-export default {
-  name: 'MyBox',
-  props: {
-    number: {
-      type: Number,
-      default: 0
+  export default {
+    name: 'MyBox',
+    props: {
+      number: {
+        type: Number,
+        default: 0
+      },
+      pending: {
+        type: String,
+        validator: value => ['active', 'inactive'].includes(value),
+        default: 'active'
+      }
     }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
   .box{
-    width: 50px;
+    min-width: 50px;
     height: 50px;
-    background-color: lightblue;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 8px;
+  }
+  .active {
+    background-color: lightgreen;
+  }
+  .inactive {
+    background-color: lightcoral;
   }
 </style>
