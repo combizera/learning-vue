@@ -11,12 +11,25 @@
     </div>
     <hr>
   </section>
-
+  
   <section>
     <h2>
       Button
     </h2>
-    <MyButton @increment="incrementCount" />
+    <div class="container">
+      <MyButton 
+        title="+1" 
+        @update="incrementCount" 
+      />
+      <MyButton 
+        title="-1" 
+        @update="decrementCount" 
+      />
+      <MyButton 
+        title="Reset" 
+        @update="resetCount" 
+      />
+    </div>
     <p class="counter">
       Counter: {{ count }}
     </p>
@@ -25,26 +38,32 @@
 </template>
 
 <script>
-import MyBox from './components/MyBox.vue'
-import MyButton from './components/MyButton.vue'
-
-export default {
-  name: 'App',
-  components: {
-    MyBox,
-    MyButton
-  },
-  data() {
-    return {
-      count: 0
-    }
-  },
-  methods: {
-    incrementCount() {
-      this.count ++
+  import MyBox from './components/MyBox.vue'
+  import MyButton from './components/MyButton.vue'
+  
+  export default {
+    name: 'App',
+    components: {
+      MyBox,
+      MyButton
+    },
+    data() {
+      return {
+        count: 0
+      }
+    },
+    methods: {
+      incrementCount() {
+        this.count ++
+      },
+      decrementCount() {
+        this.count --
+      },
+      resetCount() {
+        this.count = 0
+      }
     }
   }
-}
 </script>
 
 <style>
