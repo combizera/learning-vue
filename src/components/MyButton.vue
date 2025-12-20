@@ -1,5 +1,5 @@
 <template>
-  <button @click="$emit('update')">
+  <button :class="['button', btnClass]" @click="$emit('update')">
     {{ title }}
   </button>
 </template>
@@ -11,13 +11,18 @@
       title: {
         type: String,
         default: '+1'
+      },
+      btnClass: {
+        type: String,
+        validator: value => ['more', 'less'].includes(value),
+        default: 'more'
       }
     }
   }
 </script>
 
 <style scoped>
-  button {
+  .button {
     padding: 10px 20px;
     font-size: 20px;
     font-weight: 700;
@@ -28,7 +33,19 @@
     cursor: pointer;
     transition: background-color .25s;
   }
-  button:hover {
+  .button:hover {
     background-color: #369870;
+  }
+  .less {
+    background-color: lightcoral;
+  }
+  .less:hover {
+    background-color: #d46a6a;
+  }
+  .reset {
+    background-color: gray;
+  }
+  .reset:hover {
+    background-color: #5c5c5c;
   }
 </style>

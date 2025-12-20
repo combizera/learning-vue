@@ -11,11 +11,13 @@
 
       <MyButton 
         title="-1" 
+        class="less"
         @update="$emit('change-count', 'decrement')" 
       />
       
       <MyButton 
-        title="Reset" 
+        title="Reset"
+        btnClass="reset"
         @update="$emit('change-count', 'reset')" 
       />
     </div>
