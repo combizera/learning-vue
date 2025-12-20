@@ -16,7 +16,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   button {
     padding: 10px 20px;
     font-size: 20px;

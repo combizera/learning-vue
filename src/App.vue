@@ -1,51 +1,20 @@
 <template>
-  <section>
-    <h2>
-      My Boxes
-    </h2>
-    <div class="container">
-      <MyBox />
-      <MyBox number=1 pending="inactive"/>
-      <MyBox number=2 />
-      <MyBox number=3 />
-    </div>
-    <hr>
-  </section>
-  
-  <section>
-    <h2>
-      Button
-    </h2>
-    <div class="container">
-      <MyButton 
-        title="+1" 
-        @update="incrementCount" 
-      />
-      <MyButton 
-        title="-1" 
-        @update="decrementCount" 
-      />
-      <MyButton 
-        title="Reset" 
-        @update="resetCount" 
-      />
-    </div>
-    <p class="counter">
-      Counter: {{ count }}
-    </p>
-    <hr>
-  </section>
+  <!-- BOX -->
+  <SectionBox />
+
+  <!-- COUNTER -->
+  <SectionCounter :count="count" @change-count="handleCountChange" />
 </template>
 
 <script>
-  import MyBox from './components/MyBox.vue'
-  import MyButton from './components/MyButton.vue'
+  import SectionBox from './components/SectionBox.vue'
+  import SectionCounter from './components/SectionCounter.vue';
   
   export default {
     name: 'App',
     components: {
-      MyBox,
-      MyButton
+      SectionBox,
+      SectionCounter,
     },
     data() {
       return {
@@ -53,14 +22,18 @@
       }
     },
     methods: {
-      incrementCount() {
-        this.count ++
-      },
-      decrementCount() {
-        this.count --
-      },
-      resetCount() {
-        this.count = 0
+      handleCountChange(action, value = 1) {
+        switch(action) {
+          case 'increment':
+            this.count += value
+            break
+          case 'decrement':
+            this.count -= value
+            break
+          case 'reset':
+            this.count = 0
+            break
+        }
       }
     }
   }
@@ -77,10 +50,6 @@
     margin: 40px 0;
     opacity: .25;
     border-color: #2c3e50;
-  }
-  .counter {
-    color: white;
-    font-size: 24px;
   }
   .container {
     display: flex;
