@@ -1,20 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container">
+    <MyBox number="1"/>
+    <MyBox number="2"/>
+    <MyBox number="3"/>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MyBox from './components/MyBox.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    MyBox
   }
 }
 </script>
 
 <style>
+  .container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+  }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
