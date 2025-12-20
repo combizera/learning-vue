@@ -10,7 +10,10 @@
 export default {
   name: 'MyBox',
   props: {
-    number: Number
+    number: {
+      type: Number,
+      default: 0
+    }
   }
 }
 </script>

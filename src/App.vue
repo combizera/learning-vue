@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <MyBox />
     <MyBox number="1"/>
     <MyBox number="2"/>
     <MyBox number="3"/>
@@ -18,18 +19,20 @@ export default {
 </script>
 
 <style>
+  html {
+    background-color: #2c3e50;
+  }
   .container {
     display: flex;
     gap: 10px;
     justify-content: center;
     align-items: center;
   }
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    margin-top: 60px;
+  }
 </style>
