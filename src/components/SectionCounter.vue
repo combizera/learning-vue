@@ -1,7 +1,7 @@
 <template>
   <section>
-    <h2>
-      Counter
+    <h2 :style="{color: countStyle}">
+      Counter: {{ count }}
     </h2>
     <div class="container">
       <MyButton 
@@ -21,9 +21,6 @@
         @update="$emit('change-count', 'reset')" 
       />
     </div>
-    <p class="counter">
-      Result: {{ count }}
-    </p>
     <hr>
   </section>
 </template>
@@ -41,14 +38,11 @@
       count: {
         type: Number,
         default: 0
+      },
+      countStyle: {
+        type: String,
+        default: 'white'
       }
     }
   }
 </script>
-
-<style scoped>
-  .counter {
-    color: white;
-    font-size: 24px;
-  }
-</style>

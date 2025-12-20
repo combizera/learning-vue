@@ -3,7 +3,11 @@
   <SectionBox />
 
   <!-- COUNTER -->
-  <SectionCounter :count="count" @change-count="handleCountChange" />
+  <SectionCounter 
+    :count="count" 
+    :countStyle="countStyle" 
+    @change-count="handleCountChange" 
+  />
 </template>
 
 <script>
@@ -34,6 +38,19 @@
             this.count = 0
             break
         }
+      }
+    },
+    computed: {
+      countStyle() {
+        if (this.count < 0) {
+          return 'lightcoral'
+        }
+
+        if (this.count > 0) {
+          return 'lightgreen'
+        }
+
+        return 'white'
       }
     }
   }
