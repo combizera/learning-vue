@@ -1,19 +1,48 @@
 <template>
-  <div class="container">
-    <MyBox />
-    <MyBox number=1 pending="inactive"/>
-    <MyBox number=2 />
-    <MyBox number=3 />
-  </div>
+  <section>
+    <h2>
+      My Boxes
+    </h2>
+    <div class="container">
+      <MyBox />
+      <MyBox number=1 pending="inactive"/>
+      <MyBox number=2 />
+      <MyBox number=3 />
+    </div>
+    <hr>
+  </section>
+
+  <section>
+    <h2>
+      Button
+    </h2>
+    <MyButton @increment="incrementCount" />
+    <p class="counter">
+      Counter: {{ count }}
+    </p>
+    <hr>
+  </section>
 </template>
 
 <script>
 import MyBox from './components/MyBox.vue'
+import MyButton from './components/MyButton.vue'
 
 export default {
   name: 'App',
   components: {
-    MyBox
+    MyBox,
+    MyButton
+  },
+  data() {
+    return {
+      count: 0
+    }
+  },
+  methods: {
+    incrementCount() {
+      this.count ++
+    }
   }
 }
 </script>
@@ -21,6 +50,18 @@ export default {
 <style>
   html {
     background-color: #2c3e50;
+  }
+  h2 {
+    color: white;
+  }
+  hr {
+    margin: 40px 0;
+    opacity: .25;
+    border-color: #2c3e50;
+  }
+  .counter {
+    color: white;
+    font-size: 24px;
   }
   .container {
     display: flex;

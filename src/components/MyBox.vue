@@ -34,7 +34,7 @@
     border-radius: 8px;
   }
   .active {
-    background-color: lightgreen;
+    background-color: #42b983;
   }
   .inactive {
     background-color: lightcoral;
