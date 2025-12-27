@@ -43,3 +43,26 @@ Também podemos passar lá no `<style>` o atributo `scoped`, que faz com que o e
 ```
 
 Dessa forma, o estilo `.app` não vai interferir em outros componentes que também tenham uma classe `.app`.
+
+### Watchers
+
+Watchers são usados para observar mudanças em dados reativos e executar uma função quando esses dados mudam.
+Eles são úteis quando você quer reagir a mudanças específicas em dados, como fazer uma chamada de API quando um valor muda.
+
+```vue
+<script>
+export default {
+  data() {
+    return {
+      count: 0,
+    };
+  },
+  watch: {
+    count(newValue, oldValue) {
+      console.log(`Count mudou de ${oldValue} para ${newValue}`);
+      // Aqui você pode adicionar lógica adicional que deve ocorrer quando 'count' muda
+    },
+  },
+};
+</script>
+```

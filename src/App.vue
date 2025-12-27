@@ -23,7 +23,7 @@
     },
     data() {
       return {
-        countValue: 0
+        countValue: Number(localStorage.getItem('countValue')) || 0
       }
     },
     methods: {
@@ -53,6 +53,12 @@
         if (this.countValue > 0) return 'Is positive';
         
         return 'Is zero'
+      }
+    }, 
+    watch: {
+      countValue(newValue) {
+        // alert(`Count changed from ${oldValue} to ${newValue}`);
+        localStorage.setItem('countValue', newValue);
       }
     }
   }
