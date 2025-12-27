@@ -4,8 +4,9 @@
 
   <!-- COUNTER -->
   <SectionCounter 
-    :count="count" 
-    :countStyle="countStyle" 
+    :countValue="countValue" 
+    :countStyle="countStyle"
+    :countState="countState"
     @change-count="handleCountChange" 
   />
 </template>
@@ -22,35 +23,36 @@
     },
     data() {
       return {
-        count: 0
+        countValue: 0
       }
     },
     methods: {
       handleCountChange(action, value = 1) {
         switch(action) {
           case 'increment':
-            this.count += value
+            this.countValue += value
             break
           case 'decrement':
-            this.count -= value
+            this.countValue -= value
             break
           case 'reset':
-            this.count = 0
+            this.countValue = 0
             break
         }
       }
     },
     computed: {
       countStyle() {
-        if (this.count < 0) {
-          return 'lightcoral'
-        }
-
-        if (this.count > 0) {
-          return 'lightgreen'
-        }
+        if (this.countValue < 0) return 'lightcoral';
+        if (this.countValue > 0) return 'lightgreen';
 
         return 'white'
+      },
+      countState() {
+        if (this.countValue < 0) return 'Is negative';
+        if (this.countValue > 0) return 'Is positive';
+        
+        return 'Is zero'
       }
     }
   }

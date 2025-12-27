@@ -36,6 +36,10 @@
   .button:hover {
     background-color: #369870;
   }
+  .button:disabled{
+    opacity: .5;
+    cursor: not-allowed;
+  }
   .less {
     background-color: lightcoral;
   }
