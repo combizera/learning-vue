@@ -15,6 +15,12 @@
   </div>
 </template>
 
+<script>
+  export default {
+    name: 'TaskItem',
+  }
+</script>
+
 <style scoped>
 .task-item {
   display: flex;

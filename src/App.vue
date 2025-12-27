@@ -1,4 +1,7 @@
 <template>
+  <!-- TASK -->
+  <SectionTask />
+
   <!-- BOX -->
   <SectionBox />
 
@@ -14,12 +17,14 @@
 <script>
   import SectionBox from './components/SectionBox.vue'
   import SectionCounter from './components/SectionCounter.vue';
+  import SectionTask from './components/Task/SectionTask.vue';
   
   export default {
     name: 'App',
     components: {
       SectionBox,
       SectionCounter,
+      SectionTask,
     },
     data() {
       return {
