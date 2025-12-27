@@ -59,6 +59,9 @@
       countValue(newValue) {
         // alert(`Count changed from ${oldValue} to ${newValue}`);
         localStorage.setItem('countValue', newValue);
+      },
+      countStyle(newValue) {
+        alert(`Count style changed to ${newValue}`);
       }
     }
   }
